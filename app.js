@@ -5,7 +5,7 @@ const userRoutes = require('./routes/user')
 const conversationRoutes = require('./routes/conversation')
 const bodyParser = require('body-parser')
 const io = require('socket.io-client')
-const socket = io('http://localhost:5000')
+const socket = io(process.env.BASE_URL)
 const fileUpload = require('express-fileupload')
 require('dotenv').config()
 

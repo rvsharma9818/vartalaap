@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require('../controllers/user')
 const checkAuth = require('../middleware/checkAuth')
 const io = require('socket.io-client')
-const socket = io('http://localhost:5000')
+const socket = io(process.env.BASE_URL)
 
 router.get('/socket', (req, res) => {
     socket.emit('showUsers', null)

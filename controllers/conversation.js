@@ -1,7 +1,7 @@
 const Message = require('../models/Message')
 const Conversation = require('../models/Conversation')
 const io = require('socket.io-client')
-const socket = io('http://localhost:5000')
+const socket = io(process.env.BASE_URL)
 const cloudinary = require('../middleware/cloudinary')
 
 
