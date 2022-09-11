@@ -24,7 +24,7 @@ export class UserService {
 
     userRegistration(data) {
 
-        return this.http.post('http://localhost:5000/user', data, {
+        return this.http.post('https://vartlaaap.herokuapp.com/user', data, {
             observe: 'response',
         });
     }
@@ -32,16 +32,16 @@ export class UserService {
 
         const headers = new HttpHeaders().set('Authorization', this.token);
 
-        return this.http.get('http://localhost:5000/user/bytoken', { headers: headers })
+        return this.http.get('https://vartlaaap.herokuapp.com/user/bytoken', { headers: headers })
     }
     getUsers() {
         const headers = new HttpHeaders().set('Authorization', this.token);
 
-        return this.http.get('http://localhost:5000/user', { headers: headers })
+        return this.http.get('https://vartlaaap.herokuapp.com/user', { headers: headers })
     }
     userLogin(username: string, password: string) {
 
-        return this.http.post('http://localhost:5000/user/login', { username, password }, {
+        return this.http.post('https://vartlaaap.herokuapp.com/user/login', { username, password }, {
             observe: 'response',
         })
     }
@@ -96,24 +96,24 @@ export class UserService {
         const headers = new HttpHeaders().set('Authorization', this.token);
         const fd = new FormData()
         fd.append('profileImage', image)
-        return this.http.patch(`http://localhost:5000/user/image/`, fd, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/user/image/`, fd, {
             headers: headers
         })
     }
     updateUserPassword(oldPassword, newPassword) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/user/password/`, { oldPassword, newPassword }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/user/password/`, { oldPassword, newPassword }, {
             headers: headers
         })
     }
     updateUserInfo(user) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/user/password/`, { ...user }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/user/password/`, { ...user }, {
             headers: headers
         })
     }
     getUserById(userId) {
-        return this.http.get(`http://localhost:5000/user/${userId}`)
+        return this.http.get(`https://vartlaaap.herokuapp.com/user/${userId}`)
     }
     userHasConnected() {
         let observable = new Observable(
@@ -215,6 +215,6 @@ export class UserService {
         const headers = new HttpHeaders().set('Authorization', this.token);
         this.token = null;
         localStorage.clear()
-        return this.http.patch('http://localhost:5000/user/disconnect', null, { headers: headers })
+        return this.http.patch('https://vartlaaap.herokuapp.com/user/disconnect', null, { headers: headers })
     }
 }

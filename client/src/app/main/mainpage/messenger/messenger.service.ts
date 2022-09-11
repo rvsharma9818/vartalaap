@@ -85,19 +85,19 @@ export class MessengerService {
         return observable;
     }
     getUserById(userId) {
-        return this.http.get(`http://localhost:5000/user/${userId}`)
+        return this.http.get(`https://vartlaaap.herokuapp.com/user/${userId}`)
     }
     setReceivedMessage(messageId: string, receptor: string) {
-        return this.http.patch(`http://localhost:5000/conversation/message/received/${messageId}`, { receptor })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/message/received/${messageId}`, { receptor })
     }
     getConnectUser() {
 
 
-        return this.http.get('http://localhost:5000/user/bytoken')
+        return this.http.get('https://vartlaaap.herokuapp.com/user/bytoken')
     }
     getUserConversations() {
 
-        return this.http.get('http://localhost:5000/conversation')
+        return this.http.get('https://vartlaaap.herokuapp.com/conversation')
     }
     messageReceived() {
         let observable = new Observable(
@@ -122,19 +122,19 @@ export class MessengerService {
         return observable;
     }
     changeConversationEmoji(convId: string, emoji: string) {
-        return this.http.patch(`http://localhost:5000/conversation/emoji/${convId}`, { emoji })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/emoji/${convId}`, { emoji })
     }
     deleteMessage(messageId) {
-        return this.http.delete(`http://localhost:5000/conversation/message/${messageId}`)
+        return this.http.delete(`https://vartlaaap.herokuapp.com/conversation/message/${messageId}`)
     }
     unBlockConversation(convId: string, userid: string) {
-        return this.http.patch(`http://localhost:5000/conversation/unblock/${convId}`, { userid })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/unblock/${convId}`, { userid })
     }
     archiveConversation(convId: string) {
-        return this.http.patch(`http://localhost:5000/conversation/archive/${convId}`, null)
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/archive/${convId}`, null)
     }
     deleteConversation(convId: string) {
-        return this.http.patch(`http://localhost:5000/conversation/delete/${convId}`, null)
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/delete/${convId}`, null)
     }
     sendMessage(conversationId: string, content: string, files: any) {
         const fd = new FormData()
@@ -154,11 +154,11 @@ export class MessengerService {
 
         }
 
-        return this.http.post('http://localhost:5000/conversation', fd)
+        return this.http.post('https://vartlaaap.herokuapp.com/conversation', fd)
     }
     createConversation(destUserid: string) {
 
-        return this.http.post('http://localhost:5000/conversation/conversation', { destination: destUserid })
+        return this.http.post('https://vartlaaap.herokuapp.com/conversation/conversation', { destination: destUserid })
 
     }
     endCall(userCaller, fromCaller) {
@@ -167,30 +167,30 @@ export class MessengerService {
     sendVocalMessage(convId: string, file: any) {
         const fd = new FormData()
         fd.append('audio', file)
-        return this.http.post('http://localhost:5000/conversation/vocal/' + convId, fd)
+        return this.http.post('https://vartlaaap.herokuapp.com/conversation/vocal/' + convId, fd)
     }
     getConversationByUsers(userid: string) {
 
-        return this.http.get('http://localhost:5000/conversation/byusers/' + userid)
+        return this.http.get('https://vartlaaap.herokuapp.com/conversation/byusers/' + userid)
     }
     markConversationasRead(userDest: string, conversationId: string) {
-        return this.http.patch(`http://localhost:5000/conversation/message/${conversationId}`, { userDest })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/message/${conversationId}`, { userDest })
     }
     changeConversationColor(convId: string, color: string) {
-        return this.http.patch(`http://localhost:5000/conversation/color/${convId}`, { color })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/color/${convId}`, { color })
     }
     blockUserConversation(convId: string, userid: string) {
-        return this.http.patch(`http://localhost:5000/conversation/block/${convId}`, { userid })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/block/${convId}`, { userid })
     }
     searchAllUsers(term: string) {
 
-        return this.http.get(`http://localhost:5000/user/search-users?term=${term}`)
+        return this.http.get(`https://vartlaaap.herokuapp.com/user/search-users?term=${term}`)
     }
     changeConversationPseudo(convId: string, userid: string, content: string) {
-        return this.http.patch(`http://localhost:5000/conversation/pseudos/${convId}`, { userid, content })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/pseudos/${convId}`, { userid, content })
     }
     removeConversationPseudo(convId: string, userid) {
-        return this.http.delete(`http://localhost:5000/conversation/pseudos/${convId}/${userid}`)
+        return this.http.delete(`https://vartlaaap.herokuapp.com/conversation/pseudos/${convId}/${userid}`)
     }
 
 }

@@ -13,21 +13,21 @@ export class MainPageService {
     getConnectUser() {
 
 
-        return this.http.get('http://localhost:5000/user/bytoken')
+        return this.http.get('https://vartlaaap.herokuapp.com/user/bytoken')
     }
     updateUserProfileImg(image) {
         const fd = new FormData()
         fd.append('profileImage', image)
-        return this.http.patch(`http://localhost:5000/user/image/`, fd)
+        return this.http.patch(`https://vartlaaap.herokuapp.com/user/image/`, fd)
     }
     disconnectUser(userId) {
         localStorage.clear()
-        return this.http.patch('http://localhost:5000/user/disconnect', { userId })
+        return this.http.patch('https://vartlaaap.herokuapp.com/user/disconnect', { userId })
     }
     updateUserPassword(oldPassword, newPassword) {
-        return this.http.patch(`http://localhost:5000/user/password/`, { oldPassword, newPassword })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/user/password/`, { oldPassword, newPassword })
     }
     updateUserInfo(user) {
-        return this.http.patch(`http://localhost:5000/user`, { user })
+        return this.http.patch(`https://vartlaaap.herokuapp.com/user`, { user })
     }
 }

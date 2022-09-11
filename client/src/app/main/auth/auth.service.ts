@@ -27,14 +27,14 @@ export class AuthService {
 
     userLogin(username: string, password: string) {
 
-        return this.http.post('http://localhost:5000/user/login', { username, password }, {
+        return this.http.post('https://vartlaaap.herokuapp.com/user/login', { username, password }, {
             observe: 'response',
         })
     }
 
     userRegistration(data) {
 
-        return this.http.post('http://localhost:5000/user', data, {
+        return this.http.post('https://vartlaaap.herokuapp.com/user', data, {
             observe: 'response',
         });
     }

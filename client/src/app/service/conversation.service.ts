@@ -30,28 +30,28 @@ export class ConversationService {
 
         }
 
-        return this.http.post('http://localhost:5000/conversation', fd, {
+        return this.http.post('https://vartlaaap.herokuapp.com/conversation', fd, {
             headers: headers
         })
     }
     getConversationByUsers(userid: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
 
-        return this.http.get('http://localhost:5000/conversation/byusers/' + userid, {
+        return this.http.get('https://vartlaaap.herokuapp.com/conversation/byusers/' + userid, {
             headers: headers
         })
     }
     getUserConversations() {
         const headers = new HttpHeaders().set('Authorization', this.token);
 
-        return this.http.get('http://localhost:5000/conversation', {
+        return this.http.get('https://vartlaaap.herokuapp.com/conversation', {
             headers: headers
         })
     }
     searchAllUsers(term: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
 
-        return this.http.get(`http://localhost:5000/user/search-users?term=${term}`, {
+        return this.http.get(`https://vartlaaap.herokuapp.com/user/search-users?term=${term}`, {
             headers: headers
         })
     }
@@ -59,14 +59,14 @@ export class ConversationService {
         const headers = new HttpHeaders().set('Authorization', this.token);
         const fd = new FormData()
         fd.append('audio', file)
-        return this.http.post('http://localhost:5000/conversation/vocal/' + convId, fd, {
+        return this.http.post('https://vartlaaap.herokuapp.com/conversation/vocal/' + convId, fd, {
             headers: headers
         })
     }
     createConversation(destUserid: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
 
-        return this.http.post('http://localhost:5000/conversation/conversation', { destination: destUserid }, {
+        return this.http.post('https://vartlaaap.herokuapp.com/conversation/conversation', { destination: destUserid }, {
             headers: headers
         })
 
@@ -74,68 +74,68 @@ export class ConversationService {
     getChatConversation(conversationId: string) {
 
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.get(`http://localhost:5000/conversation/${conversationId}`, {
+        return this.http.get(`https://vartlaaap.herokuapp.com/conversation/${conversationId}`, {
             headers: headers
         })
 
     }
     markConversationasRead(userDest: string, conversationId: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/message/${conversationId}`, { userDest }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/message/${conversationId}`, { userDest }, {
             headers: headers
         })
     }
     changeConversationColor(convId: string, color: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/color/${convId}`, { color }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/color/${convId}`, { color }, {
             headers: headers
         })
     }
     changeConversationPseudo(convId: string, userid: string, content: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/pseudos/${convId}`, { userid, content }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/pseudos/${convId}`, { userid, content }, {
             headers: headers
         })
     }
     changeConversationEmoji(convId: string, emoji: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/emoji/${convId}`, { emoji }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/emoji/${convId}`, { emoji }, {
             headers: headers
         })
     }
     blockUserConversation(convId: string, userid: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/block/${convId}`, { userid }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/block/${convId}`, { userid }, {
             headers: headers
         })
     }
     deleteMessage(messageId) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.delete(`http://localhost:5000/conversation/message/${messageId}`, {
+        return this.http.delete(`https://vartlaaap.herokuapp.com/conversation/message/${messageId}`, {
             headers: headers
         })
     }
     unBlockConversation(convId: string, userid: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/unblock/${convId}`, { userid }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/unblock/${convId}`, { userid }, {
             headers: headers
         })
     }
     archiveConversation(convId: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/archive/${convId}`, null, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/archive/${convId}`, null, {
             headers: headers
         })
     }
     deleteConversation(convId: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/delete/${convId}`, null, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/delete/${convId}`, null, {
             headers: headers
         })
     }
     setReceivedMessage(messageId: string, receptor: string) {
         const headers = new HttpHeaders().set('Authorization', this.token);
-        return this.http.patch(`http://localhost:5000/conversation/message/received/${messageId}`, { receptor }, {
+        return this.http.patch(`https://vartlaaap.herokuapp.com/conversation/message/received/${messageId}`, { receptor }, {
             headers: headers
         })
     }

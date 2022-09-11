@@ -20,7 +20,7 @@ import { CallRoomComponent } from './main/callRoom/call-room.component';
 import { UserNavBarModule } from './main/mainpage/user-navbar/user-navbar.module';
 
 
-const config: SocketIoConfig = { url: 'http://localhost:5000' };
+const config: SocketIoConfig = { url: 'https://vartlaaap.herokuapp.com/' };
 
 
 export const AppRoutes: Routes = [

@@ -31,10 +31,10 @@ export class CallRoomService {
     }
     getConversationByUsers(userid: string) {
 
-        return this.http.get('http://localhost:5000/conversation/byusers/' + userid)
+        return this.http.get('https://vartlaaap.herokuapp.com/conversation/byusers/' + userid)
     }
     logCall(conversationId, isAnsweredCall, isVideoCall) {
-        return this.http.post('http://localhost:5000/conversation/call/' + conversationId, { isAnsweredCall, isVideoCall })
+        return this.http.post('https://vartlaaap.herokuapp.com/conversation/call/' + conversationId, { isAnsweredCall, isVideoCall })
 
     }
     callUser(callerUserId, receiverUserId, isVideoCall) {
@@ -80,11 +80,11 @@ export class CallRoomService {
         return observable
     }
     getUserById(userId) {
-        return this.http.get(`http://localhost:5000/user/${userId}`)
+        return this.http.get(`https://vartlaaap.herokuapp.com/user/${userId}`)
     }
     getConnectUser() {
 
-        return this.http.get('http://localhost:5000/user/bytoken')
+        return this.http.get('https://vartlaaap.herokuapp.com/user/bytoken')
     }
     endCall(userCaller, fromCaller) {
         this.socket.emit('end-call', userCaller, fromCaller)
