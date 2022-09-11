@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+background:black;
 }
 
 body,
@@ -79,67 +80,67 @@ input:focus {
 }
 
 input:focus::-webkit-input-placeholder {
-  color: transparent;
+  color: white;
 }
 
 input:focus:-moz-placeholder {
-  color: transparent;
+  color: white;
 }
 
 input:focus::-moz-placeholder {
-  color: transparent;
+  color: white;
 }
 
 input:focus:-ms-input-placeholder {
-  color: transparent;
+  color: white;
 }
 
 textarea:focus::-webkit-input-placeholder {
-  color: transparent;
+  color: white;
 }
 
 textarea:focus:-moz-placeholder {
-  color: transparent;
+  color: white;
 }
 
 textarea:focus::-moz-placeholder {
-  color: transparent;
+  color: white;
 }
 
 textarea:focus:-ms-input-placeholder {
-  color: transparent;
+  color: white;
 }
 
 input::-webkit-input-placeholder {
-  color: #999999;
+  color: white;
 }
 
 input:-moz-placeholder {
-  color: #999999;
+  color: white;
 }
 
 input::-moz-placeholder {
-  color: #999999;
+  color:white;
 }
 
 input:-ms-input-placeholder {
-  color: #999999;
+  color: white;
 }
 
 textarea::-webkit-input-placeholder {
-  color: #999999;
+  color: white;
 }
 
 textarea:-moz-placeholder {
-  color: #999999;
+  color: white;
 }
 
 textarea::-moz-placeholder {
-  color: #999999;
+  color: white;
 }
 
 textarea:-ms-input-placeholder {
-  color: #999999;
+  color: whites;
 }
 
 label {
@@ -168,7 +169,7 @@ iframe {
 .txt1 {
   font-family: Raleway-SemiBold;
   font-size: 13px;
-  color: #555555;
+  color: #f5eeee;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -176,14 +177,14 @@ iframe {
 .txt2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
-  color: #999999;
+  color: #f7e9e9;
   line-height: 1.4;
 }
 
 .txt3 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
-  color: #555555;
+  color: #f7efef;
   line-height: 1.4;
 }
 
@@ -205,13 +206,13 @@ iframe {
   align-items: center;
   padding: 15px;
 
-  background-color: white;
+  background: transparent;;
 }
 
 
 .wrap-login100 {
   width: 560px;
-  background: #fff;
+  background: transparent;;
   border-radius: 10px;
   position: relative;
 }
@@ -245,7 +246,7 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  background-color: #fff;
+  background: transparent;;
   border: 1px solid #e6e6e6;
   border-radius: 2px;
 }
@@ -254,7 +255,7 @@ iframe {
 /*---------------------------------------------*/
 .input100 {
   font-family: Raleway-Medium;
-  color: #555555;
+  color: white;
   line-height: 1.2;
   font-size: 18px;
 
@@ -278,7 +279,7 @@ iframe {
   pointer-events: none;
   border: 1px solid #0084ff;
   border-radius: 3px;
-
+color: white;
   visibility: hidden;
   opacity: 0;
 

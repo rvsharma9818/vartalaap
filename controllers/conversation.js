@@ -126,7 +126,6 @@ exports.sendMessage = async (req, res) => {
             .catch(err => { console.log(err) })
 
     } catch (error) {
-        console.log(error)
         res.status(500).json({ error: error })
     }
 }
@@ -304,7 +303,6 @@ exports.getUserConversations = async (req, res) => {
         res.status(200).json({ conversations: conversations })
 
     } catch (error) {
-        console.log(error)
         res.status(500).json({ error: error.message })
 
     }

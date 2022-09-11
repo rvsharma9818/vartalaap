@@ -7,7 +7,6 @@ const User = require('./models/User')
 const ConnectedUsers = [];
 require('dotenv').config()
 server.listen(process.env.PORT || 5000, () => {
-console.log("hii")
     io.on('connection', (socket) => {
         socket.on('connectuser', async (token, isCall) => {
             try {
@@ -81,9 +80,7 @@ console.log("hii")
                     ConnectedUsers[userindex].socketIds.splice(socketIdIndex, 1)
                 } else {
 
-                    console.log(userindex)
-                    console.log(ConnectedUsers[userindex])
-                    console.log('==================================')
+                    
                     const lastVisitDate = new Date().toISOString()
                     await User.updateOne({ _id: ConnectedUsers[userindex].userid }, { $set: { connection: { status: false, lastVisit: lastVisitDate } } })
                     socket.broadcast.emit('user-disconnected', { userid: ConnectedUsers[userindex].userid, lastVisit: lastVisitDate })
@@ -132,7 +129,6 @@ console.log("hii")
         })
         socket.on('cameraOpenClose', (DestUserId, action) => {
             const userIndex = ConnectedUsers.findIndex(connectedUser => { return connectedUser.userid === DestUserId })
-            console.log(ConnectedUsers[userIndex].userid, DestUserId)
             if (userIndex >= 0) {
                 socket.broadcast.to(ConnectedUsers[userIndex].socketIdCall).emit('onCameraStateChange', action)
             }
@@ -161,9 +157,7 @@ console.log("hii")
                         ConnectedUsers[userindex].socketIds.splice(socketIdIndex, 1)
                     } else {
 
-                        console.log(userindex)
-                        console.log(ConnectedUsers[userindex])
-                        console.log('==================================')
+                        
                         const lastVisitDate = new Date().toISOString()
                         await User.updateOne({ _id: ConnectedUsers[userindex].userid }, { $set: { connection: { status: false, lastVisit: lastVisitDate } } })
                         socket.broadcast.emit('user-disconnected', { userid: ConnectedUsers[userindex].userid, lastVisit: lastVisitDate })

@@ -121,12 +121,12 @@ export class CallRoomComponent implements OnInit {
                 if (state) {
 
                     this.callStatus = true;
-                    this.callState = 'ca sonne...'
-                    // this.ringinSound.play()
+                    this.callState = 'its ringing...'
+                    //this.ringinSound.play()
 
                 }
                 else {
-                    this.callState = 'Pas de reponse'
+                    this.callState = 'No answer                    '
                     this.stopCallStream.next(true)
                     this.callStatus = false;
                     if (this.isCaller)

@@ -13,8 +13,8 @@
       </div>
       <div class="modal-footer">
         <div>
-          <button class="button-success" (click)="onShowUsernameModal(false)">Annuler</button>
-          <button class="button-danger" (click)="saveUsername()">Enregister</button>
+          <button class="button-success" (click)="onShowUsernameModal(false)">Cancel</button>
+          <button class="button-danger" (click)="saveUsername()">To register</button>
         </div>
       </div>
     </div>
@@ -93,8 +93,8 @@
       </div>
       <div class="modal-footer">
         <div>
-          <button class="button-success" (click)="onShowAddressModal(false)">Annuler</button>
-          <button class="button-danger" (click)="saveAddress()">Enregister</button>
+          <button class="button-success" (click)="onShowAddressModal(false)">Close</button>
+          <button class="button-danger" (click)="saveAddress()">To register</button>
         </div>
       </div>
     </div>
@@ -127,8 +127,8 @@
       </div>
       <div class="modal-footer">
         <div>
-          <button class="button-success" (click)="onShowPasswordModal(false)">Annuler</button>
-          <button class="button-danger" (click)="savePassword()">Enregister</button>
+          <button class="button-success" (click)="onShowPasswordModal(false)">Close</button>
+          <button class="button-danger" (click)="savePassword()">To register          </button>
         </div>
       </div>
     </div>
@@ -152,7 +152,7 @@
         </div>
         <div style="display: flex;justify-content: center;align-items: center;">
           <h4 class="field-title">
-            Member depuis: <span class="field-content">{{transformDateJoin(userProfile.joinDate)}}</span>
+            Member since: <span class="field-content">{{transformDateJoin(userProfile.joinDate)}}</span>
           </h4>
         </div>
         <div style="margin-top: 20px;">

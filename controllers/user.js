@@ -67,8 +67,7 @@ exports.updateUserInfo = async (req, res) => {
         const updatedUser = await User.findByIdAndUpdate(req.user._id, { $set: { ...req.body.user } })
         res.status(200).json({ updatedUser })
     } catch (error) {
-        console.log(error.message)
-        res.status(500).json({ error: error.meesage })
+       res.status(500).json({ error: error.meesage })
 
     }
 }
@@ -93,7 +92,6 @@ exports.updateUserPassword = async (req, res) => {
 
 
     } catch (error) {
-        console.log(error)
         res.status(500).json({ error: error.meesage })
 
     }
@@ -161,7 +159,6 @@ exports.userLogin = async (req, res) => {
             res.status(401).json({ message: 'Authentification failed' })
 
     } catch (error) {
-        console.log(error)
         res.status(500).json({ error: error.meesage })
 
     }

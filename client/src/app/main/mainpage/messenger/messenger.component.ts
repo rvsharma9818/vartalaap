@@ -9,7 +9,7 @@ import { MessengerService } from './messenger.service';
 import { MainPageService } from '../mainpage.service';
 declare var MediaRecorder: any;
 
-moment.locale('fr')
+moment.locale('fr');
 
 
 @Component({
@@ -276,7 +276,7 @@ export class MessengerComponent implements OnInit, OnDestroy {
         const hour = + _Date.getHours();
 
         if (year === nowyear && day === nowday && nowhour - hour < 12)
-            return 'En ligne ' + moment(_Date).seconds(0).milliseconds(0).fromNow()
+            return 'Online ' + moment(_Date).seconds(0).milliseconds(0).fromNow()
         return ""
     }
     transformDateJoin(date) {
@@ -537,32 +537,32 @@ export class MessengerComponent implements OnInit, OnDestroy {
         if (message.sender == this.connectedUser._id) {
 
             if (message.audioLogger === -1)
-                return `${this.currentConversation.users[this.destinationUser].name} a manque votre appel`
+                return `${this.currentConversation.users[this.destinationUser].name} missed your call`
             else if (message.audioLogger === 0) {
-                return `Vous avez appele ${this.currentConversation.users[this.destinationUser].name}`
+                return `You called${this.currentConversation.users[this.destinationUser].name}`
             }
-            return `Discussion vidéo terminée`
+            return `Video chat ended`
 
         }
         else {
 
             if (message.audioLogger === -1)
-                return `Vous avez manque un de appel ${this.currentConversation.users[this.destinationUser].name}`
+                return `You missed a call ${this.currentConversation.users[this.destinationUser].name}`
             else if (message.audioLogger === 0) {
-                return `Vous avez recu un appel de ${this.currentConversation.users[this.destinationUser].name}`
+                return `You received a call from${this.currentConversation.users[this.destinationUser].name}`
             }
-            return `Discussion vidéo terminée`
+            return `Video chat ended`
         }
     }
     getLastConversationContent(conversation) {
         const lastMessage = conversation.messages[conversation.messages.length - 1];
         if (!lastMessage.available) {
             if (lastMessage.sender == this.connectedUser._id)
-                return `Vous avez supprimé un message`
+                return `You deleted a message`
             else {
 
                 const userIndex = conversation.users.findIndex(user => user._id == lastMessage.sender)
-                return `${conversation.users[userIndex].name} avez supprimé un message`
+                return `${conversation.users[userIndex].name} deleted a message`
 
             }
         }
@@ -571,11 +571,11 @@ export class MessengerComponent implements OnInit, OnDestroy {
                 const userIndex = conversation.users.findIndex(user => user._id != lastMessage.sender)
 
                 if (lastMessage.audioLogger === -1)
-                    return `${conversation.users[userIndex].name} a manque votre appel`
+                    return `${conversation.users[userIndex].name} missed your call`
                 else if (lastMessage.audioLogger === 0) {
-                    return `Vous avez appele ${conversation.users[userIndex].name}`
+                    return `You called${conversation.users[userIndex].name}`
                 }
-                return `Discussion vidéo terminée`
+                return `Video chat ended`
 
             }
             else {
@@ -583,46 +583,46 @@ export class MessengerComponent implements OnInit, OnDestroy {
                 const userIndex = conversation.users.findIndex(user => user._id == lastMessage.sender)
 
                 if (lastMessage.audioLogger === -1)
-                    return `Vous avez manque un de appel ${conversation.users[userIndex].name}`
+                    return `You missed a call ${conversation.users[userIndex].name}`
                 else if (lastMessage.audioLogger === 0) {
-                    return `Vous avez recu un appel de ${conversation.users[userIndex].name}`
+                    return `You received a call from${conversation.users[userIndex].name}`
                 }
-                return `Discussion vidéo terminée`
+                return `Video chat ended`
             }
         }
         if (lastMessage.content.length > 0)
             if (lastMessage.sender == this.connectedUser._id)
-                return `Vous: ${lastMessage.content}`
+                return `You: ${lastMessage.content}`
             else
                 return lastMessage.content
         if (lastMessage.images.length > 0) {
             if (lastMessage.sender == this.connectedUser._id) {
 
                 if (lastMessage.images.length == 1)
-                    return `Vous envoyé envoyé une photo`
-                return `Vous avez envoyé ${lastMessage.images.length} photos`
+                    return `Sent you sent a photo`
+                return `You sent ${lastMessage.images.length} photos`
             }
             if (lastMessage.images.length == 1)
-                return `Vous récu envoyé une photo`
-            return `Vous avez récu ${lastMessage.images.length} photos`
+                return `You received sent a photo`
+            return ` ${lastMessage.images.length} photos`
         }
         if (lastMessage.videos.length > 0) {
             if (lastMessage.sender == this.connectedUser._id) {
 
                 if (lastMessage.videos.length == 1)
-                    return `Vous envoyé envoyé une video`
-                return `Vous avez envoyé ${lastMessage.videos.length} videos`
+                    return `Sent you sent a video`
+                return `You sent${lastMessage.videos.length} videos`
             }
             if (lastMessage.videos.length == 1)
-                return `Vous récu envoyé une photo`
-            return `Vous avez récu ${lastMessage.videos.length} videos`
+                return `You received sent a photo`
+            return `You received ${lastMessage.videos.length} videos`
         }
         if (lastMessage.audio.length > 0) {
             if (lastMessage.sender == this.connectedUser._id) {
 
-                return 'Vous avez envoyé un message vocal.'
+                return 'You have sent a voice message.'
             }
-            return 'Vous avez récu un message vocal.'
+            return 'You have received a voice message.'
         }
     }
     callUser(videoCall) {
