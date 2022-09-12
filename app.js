@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_INFO, {
     useNewUrlParser: true,
     useFindAndModify: false
 })
-app.use(express.static('dist/client'));
+app.use(express.static('client/dist/client'));
 
 app.use('/user', userRoutes)
 app.use('/conversation', conversationRoutes)
