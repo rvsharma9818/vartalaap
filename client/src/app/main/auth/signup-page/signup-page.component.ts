@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { AuthService } from '../auth.service';
 @Component({
@@ -22,7 +23,7 @@ export class SignUpPageComponent implements OnInit {
     showRePassword: boolean;
     profileImageFile: File;
 
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthService,private router:Router) {
         this.imagePreview = 'assets/img/default-user.jpeg'
         this.username = '';
         this.name = '';
@@ -70,6 +71,7 @@ export class SignUpPageComponent implements OnInit {
                 title: 'Your account is created',
                 showConfirmButton: false,
             })
+            this.router.navigate(['/auth/login'])
         }, errorResponse => {
             if (errorResponse.status == 409)
                 Swal.fire({
