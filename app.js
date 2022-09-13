@@ -27,6 +27,11 @@ app.use(express.static('dist/client'));
 
 app.use('/user', userRoutes)
 app.use('/conversation', conversationRoutes)
+app.use('/room/:roomId', async(req,res)=>{
+console.log(req.params.roomId)
+})
+
+
 app.get('/status', (req, res) => {
     socket.emit('showUsers', null)
     res.send('done')
