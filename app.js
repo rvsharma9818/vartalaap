@@ -14,7 +14,8 @@ const app = express()
 app.use(fileUpload({
     useTempFiles: true
 }))
-app.use(cors())
+app.use(cors({
+    origin:"*"}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
